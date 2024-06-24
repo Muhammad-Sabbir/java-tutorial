@@ -47,36 +47,36 @@ class GasPowerCar extends Car {
 }
 
 class ElectricCar extends Car{
-    public double avgKmPerLiter;
-    public int batterySize;
+    public double avgKmPerCharge;
+    public int batterySize=6;
 
     public ElectricCar(String description) {
         super(description);
     }
 
-    public ElectricCar(String description, double avgKmPerLiter, int batterySize) {
+    public ElectricCar(String description, double avgKmPerCharge, int batterySize) {
         super(description);
-        this.avgKmPerLiter = avgKmPerLiter;
+        this.avgKmPerCharge = avgKmPerCharge;
         this.batterySize = batterySize;
     }
 
     @Override
     public void startEngine() {
-        super.startEngine();
-        System.out.println("ElectricCar startEngine Method");
+
+        System.out.printf("BEV -> switch %d kWh battery on, Ready!%n", batterySize);
     }
 
     @Override
     public void drive() {
-        super.drive();
-        System.out.println("ElectricCar drive Method");
+
+        System.out.printf("BEV -> usage under the average: %.2f %n", avgKmPerCharge);
     }
 }
 
 class HybridCar extends Car{
     public double avgKmPerLiter;
-    public int batterySize;
-    public int cylinders;
+    public int batterySize=6;
+    public int cylinders=6;
 
     public HybridCar(String description) {
         super(description);
@@ -90,14 +90,16 @@ class HybridCar extends Car{
 
     @Override
     public void startEngine() {
-        super.startEngine();
-        System.out.println("HybridCar startEngine Method");
+
+        System.out.printf("Hybrid -> %d cylinders are fired up. %n", cylinders);
+        System.out.printf("Hybrid -> switch %d kWh battery on, Ready! %n", batterySize);
     }
 
     @Override
     public void drive() {
-        super.drive();
-        System.out.println("HybridCar drive Method");
+
+        System.out.printf("Hybrid -> usage below average: %.2f %n", avgKmPerLiter);
+
     }
 }
 
