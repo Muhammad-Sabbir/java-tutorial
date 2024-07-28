@@ -8,6 +8,11 @@ record GroceryItem(String name, String type, int count){
         this(name, "DAIRY", 1);
 
     }
+
+    @Override
+    public String toString(){
+        return String.format("%d %s in %s", count, name.toUpperCase(), type);
+    }
 }
 
 public class Main {
@@ -23,9 +28,15 @@ public class Main {
         objectList.add("Yogurt");
 
         ArrayList<GroceryItem> groceryList = new ArrayList<>();
-
         groceryList.add(new GroceryItem("Butter"));
+        groceryList.add(new GroceryItem("milk"));
+        groceryList.add(new GroceryItem("oranges", "PRODUCE",5 ));
+        groceryList.add(0, new GroceryItem("apples", "PRODUCE",10 ));
+        groceryList.set(1, new GroceryItem("banana", "PRODUCE",10 ));
         System.out.println(groceryList);
+        groceryList.remove(3);
+
+
 
         }
 }
