@@ -24,6 +24,9 @@ public class Employee {
             }
             return o1.name.compareTo(o2.name);
         }
+
+//        public int compare(StoreEmployee o1, StoreEmployee o2) {
+//        }
     }
     private int employeeId;
     private String name;
